@@ -1,0 +1,76 @@
+<app-sidebar></app-sidebar>
+<div class="containerr mt-4" style="margin-left: 155px;background-color: black;color: white;">
+    Search Profiles
+</div>
+<div class="container mt-4" style="margin-left: 155px;">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="name">
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="phoneNumber">
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <input type="number" class="form-control" placeholder="Age" [(ngModel)]="age">
+      </div>
+      <div class="col-md-6">
+        <input type="email" class="form-control" placeholder="Email ID" [(ngModel)]="email">
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <button type="button" style="background-color: darkred;" class="btn btn-secondary">Clear</button>
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </div>
+  
+  
+<div class="containerr mt-4" style="margin-left: 155px;background-color: black;color: white;">
+    Profile List
+</div>
+<!-- search -->
+ <div class="container mt-4" style="margin-left: 155px;">
+    <div class="table-responsive">
+        <table id="userList"
+            class="table DataTables">
+            <thead id="id-table-head">
+
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</div>
+
+<div class="containerr mt-4" style="margin-left: 130px;">
+    <button class="bt" style="background-color: darkblue;" (click)="update()">Update</button>
+    <button class="bt" style="background-color: darkred;" (click)="remove()">Delete</button>
+    <button class="bt" style="background-color: darkgreen;" onclick="add()">Add</button>
+    <button class="bt" style="background-color: darkorchid;" data-toggle="modal" data-target="#uploadModal">Upload</button>
+</div>
+
+<div class="modal" id="uploadModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Upload Image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="file" (change)="onFileSelected($event)" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="onUpload()">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>

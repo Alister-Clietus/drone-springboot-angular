@@ -1,0 +1,7 @@
+2024-03-21T10:32:50.529+05:30  WARN 27216 --- [droneService] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15h44m14s877ms370µs700ns).
+2024-03-21T10:34:10.273+05:30  WARN 27216 --- [droneService] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s665ms775µs600ns).
+2024-03-21T11:15:47.823+05:30  WARN 27216 --- [droneService] [http-nio-8076-exec-9] org.apache.catalina.connector.Request    : Creating the temporary upload location [C:\Users\user\AppData\Local\Temp\tomcat.8076.11812099138958603735\work\Tomcat\localhost\ROOT] as it is required by the servlet [dispatcherServlet]
+2024-03-21T11:37:20.492+05:30  INFO 27216 --- [droneService] [RMI TCP Connection(616)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-03-21T11:37:20.583+05:30  INFO 27216 --- [droneService] [RMI TCP Connection(616)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T11:37:20.602+05:30  INFO 27216 --- [droneService] [RMI TCP Connection(616)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-21T11:37:20.609+05:30  INFO 27216 --- [droneService] [RMI TCP Connection(616)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,71 @@
+package com.drone.service.service;
+
+import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.drone.service.dto.ProfileDTO;
+import com.drone.service.entity.FaceProfiles;
+import com.drone.service.repository.DroneRepository;
+
+@Service
+public class ProfileServiceImp implements ProfileService
+{
+	@Autowired
+	DroneRepository repo;
+
+	public ResponseEntity<?> addProfileDetails(ProfileDTO profiledto) 
+	{
+		FaceProfiles entity=new FaceProfiles();
+		entity.setPhoneNumber(profiledto.getPhoneNumber());
+		entity.setName(profiledto.getName());
+		entity.setEmail(profiledto.getEmail());
+		entity.setAge(profiledto.getAge());
+		repo.save(entity);
+		return new ResponseEntity<>("Added Successfully",HttpStatus.OK);
+	}
+
+	public JSONObject showProfileDetails() {
+		return null;
+	}
+	
+	public JSONObject searchfor(String searchParam,int start, int pageSize) 
+	{
+		JSONObject result = new JSONObject();
+		try {
+//			PageRequest pageable = PageRequest.of(start / pageSize, pageSize);
+//			Specification<EntityClass> spec = SecurityUserSpec.getUserSpec(searchParam);
+//			Page<EntityClass> usersList = repo.findAll(spec,pageable);
+			List<FaceProfiles> usersList = repo.findAll();
+
+			JSONArray array = new JSONArray();
+//			JSONArray countByStatus = countByStatus(spec);
+			for (FaceProfiles users : usersList) {
+				JSONObject obj = new JSONObject();
+				obj.put("ID", users.getId().getId());
+				obj.put("NAME", users.getId().getName());
+				obj.put("EMAIL", users.getEmail());
+				obj.put("PHONENUMBER", users.getPhonenumber());
+				obj.put("BLOOD", users.getBlood());
+				obj.put("DOB", users.getDob());
+				obj.put("STATUS", users.getStatus());
+				array.add(obj);
+			}
+			result.put("aaData", array);
+			result.put("iTotalDisplayRecords", repo.findAll().size());
+//			result.put("iTotalRecords", repo.findAll(spec).size());
+//			result.put("countByStatus", countByStatus);
+		} catch (Exception e) {
+			System.out.println(e);
+
+		}
+		return result;
+	}
+
+}

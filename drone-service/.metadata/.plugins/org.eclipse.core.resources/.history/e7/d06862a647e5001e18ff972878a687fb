@@ -1,0 +1,15 @@
+package com.drone.service.service;
+
+import org.json.simple.JSONObject;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.drone.service.dto.ProfileDTO;
+
+@Service
+public interface ProfileService
+{
+	ResponseEntity<?> addProfileDetails(ProfileDTO profiledto);
+	JSONObject showProfileDetails();
+
+}

@@ -1,0 +1,9 @@
+package com.drone.service.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.drone.service.entity.FaceProfiles;
+
+public interface DroneRepository extends JpaRepository<FaceProfiles,Long>{
+
+}
